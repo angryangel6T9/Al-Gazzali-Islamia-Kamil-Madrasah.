@@ -3,641 +3,369 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Al-Gazzali Islamia Kamil Madrasah</title>
-    <style>
+    <style type="text/css">
+        /* ===== বডি ও বেসিক স্টাইল ===== */
         body {
-            background-color: #e8e6e1;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #222222;
-            margin: 12px;
+            background-color: #C0C0C0; /* ক্লাসিক সিলভার/গ্রে ব্যাকগ্রাউন্ড */
+            font-family: "Times New Roman", Times, serif; /* ভিনটেজ প্রাতিষ্ঠানিক ফন্ট */
+            color: #000000;
+            margin: 15px;
         }
 
         a {
-            color: #003366;
+            color: #0000EE;
             text-decoration: underline;
         }
+        a:visited {
+            color: #551A8B;
+        }
         a:hover {
-            color: #cc9900;
+            color: #FF0000; /* হোভার করলে ক্লাসিক লাল রঙ */
         }
 
-        .container {
-            max-width: 1100px;
+        h1, h2, h3 {
+            font-weight: normal;
+            margin-top: 0;
+            color: #660000;
+        }
+
+        /* ===== মূল কন্টেইনার (টেবিল বেসড লেআউট সিমুলেশন) ===== */
+        .wrapper {
+            width: 980px;
             margin: 0 auto;
-            background: #ffffff;
-            border: 2px solid #1a2a4a;
-            border-radius: 8px;
-            overflow: hidden;
+            background-color: #FFFFFF;
+            border: 4px outset #E0E0E0; /* 3D বর্ডার ইফেক্ট */
         }
 
         /* ===== হেডার ===== */
-        .header-bg {
-            background-color: #1a2a4a;
-            color: #ffffff;
-            padding: 12px 18px;
-            border-bottom: 4px solid #cc9900;
+        .header {
+            background-color: #660000; /* গাঢ় মেরুন */
+            color: #FFFFFF;
+            padding: 15px;
+            border-bottom: 5px solid #DAA520; /* সোনালী বর্ডার */
         }
-
-        .header-bg a {
-            color: #e6dbb5;
+        .header a {
+            color: #DAA520;
         }
-        .header-bg a:hover {
-            color: #cc9900;
-        }
-
-        .logo-img {
-            border: 3px solid #cc9900;
-            border-radius: 50%;
-            padding: 3px;
-            background: #ffffff;
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-        }
-
         .madrasah-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            color: #ffffff;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
         .madrasah-title span {
-            color: #cc9900;
+            color: #DAA520;
         }
         .sub-title {
-            font-size: 14px;
-            color: #b0b8c8;
-            font-weight: normal;
-        }
-        .header-meta {
-            font-size: 13px;
-            color: #b0b8c8;
-        }
-        .header-meta strong {
-            color: #ffffff;
+            font-size: 16px;
+            font-style: italic;
         }
 
         /* ===== মার্কি ===== */
-        .ticker-bg {
-            background-color: #f0ede5;
-            padding: 6px 12px;
-            border-bottom: 2px solid #c0b8a8;
-            font-weight: bold;
-            color: #222222;
+        .marquee-box {
+            background-color: #FFF8DC; /* পার্চমেন্ট কালার */
+            border-bottom: 2px solid #660000;
+            padding: 5px;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
+            color: #000000;
         }
 
-        /* ===== সাইডবার ===== */
-        .sidebar-bg {
-            background-color: #f3f0ea;
-            padding: 14px 16px;
-            border-right: 1px solid #d0c8b8;
-            vertical-align: top;
-            width: 22%;
-        }
-
-        .sidebar-bg h3 {
-            color: #1a2a4a;
-            font-size: 15px;
-            border-bottom: 2px solid #cc9900;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .sidebar-bg ul {
-            list-style: none;
-            padding: 0;
+        /* ===== সাইডবার নেভিগেশন ===== */
+        .nav-list {
+            list-style-type: square; /* ক্লাসিক চারকোনা বুলেট */
+            padding-left: 18px;
             margin: 0;
-        }
-
-        .sidebar-bg ul li {
-            padding: 5px 0;
-            border-bottom: 1px dashed #d0c8b8;
-        }
-
-        .sidebar-bg ul li:last-child {
-            border-bottom: none;
-        }
-
-        .sidebar-bg ul li a {
-            color: #222222;
-            text-decoration: none;
-            font-weight: 500;
+            line-height: 1.8;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
         }
-        .sidebar-bg ul li a:hover {
-            color: #cc9900;
-            text-decoration: underline;
-        }
 
-        .contact-box {
-            margin-top: 16px;
-            font-size: 13px;
-        }
-        .contact-box p {
-            margin: 3px 0;
-        }
-        .contact-box strong {
-            color: #1a2a4a;
-        }
-
-        .map-btn {
-            display: inline-block;
-            background-color: #1a2a4a;
-            color: #ffffff !important;
-            padding: 4px 14px;
-            border-radius: 30px;
-            text-decoration: none !important;
-            font-weight: bold;
-            font-size: 12px;
-            margin-top: 6px;
-        }
-        .map-btn:hover {
-            background-color: #cc9900;
-            color: #1a2a4a !important;
-            text-decoration: none !important;
-        }
-
-        /* ===== কন্টেন্ট ===== */
-        .content-bg {
-            background-color: #ffffff;
-            padding: 16px 20px;
-            vertical-align: top;
-            width: 55%;
-        }
-
-        .content-bg h2 {
-            color: #1a2a4a;
-            font-size: 22px;
-            border-bottom: 3px solid #cc9900;
-            padding-bottom: 5px;
-            margin-bottom: 12px;
-        }
-
-        .content-bg h3 {
-            color: #1a2a4a;
-            font-size: 17px;
-            margin: 16px 0 10px 0;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 4px;
-        }
-
-        .content-bg p {
-            margin-bottom: 12px;
+        /* ===== কন্টেন্ট এরিয়া ===== */
+        .content-area {
             text-align: justify;
-            line-height: 1.7;
-            color: #333333;
-            font-size: 14px;
-        }
-
-        /* ক্যাম্পাস ছবি — 4608×3456, বড় সাইজ কিন্তু ডিসপ্লেতে ঠিক */
-        .campus-img {
-            border: 3px solid #d0c8b8;
-            border-radius: 8px;
-            width: 100%;
-            max-height: 240px;
-            object-fit: cover;
-            margin: 4px 0 14px 0;
-        }
-
-        /* ===== প্রিন্সিপাল — 688×1210 (লম্বা) ===== */
-        .principal-box {
-            background-color: #f3f0ea;
-            border-left: 5px solid #cc9900;
-            border-radius: 6px;
-            padding: 12px 16px;
-            margin: 14px 0;
-        }
-
-        .principal-box table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .principal-box td {
-            padding: 5px 10px;
-            vertical-align: middle;
-        }
-
-        .principal-box .p-img {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            border: 3px solid #cc9900;
-            object-fit: cover;
-        }
-
-        .principal-box .p-name {
+            line-height: 1.6;
             font-size: 16px;
+        }
+        
+        .img-classic {
+            border: 2px solid #000000; /* সাধারণ কালো বর্ডার */
+            margin-bottom: 15px;
+        }
+
+        /* ===== প্রিন্সিপাল বক্স ===== */
+        .principal-box {
+            background-color: #F5F5DC;
+            border: 1px solid #660000;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        .p-name {
+            font-size: 18px;
             font-weight: bold;
-            color: #1a2a4a;
+            color: #660000;
         }
-        .principal-box .p-desig {
-            font-size: 13px;
-            color: #666666;
-        }
-        .principal-box .p-quote {
+        .p-quote {
             font-style: italic;
-            color: #444444;
-            font-size: 14px;
+            margin-top: 5px;
         }
 
         /* ===== একাডেমিক টেবিল ===== */
-        .academic-table {
+        .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 10px 0 16px 0;
-            border: 1px solid #d0c8b8;
-            border-radius: 6px;
-            overflow: hidden;
+            border: 2px solid #000000;
+            margin-bottom: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
         }
-
-        .academic-table th {
-            background-color: #1a2a4a;
-            color: #ffffff;
-            padding: 8px 14px;
+        .data-table th {
+            background-color: #660000;
+            color: #FFFFFF;
+            border: 1px solid #000000;
+            padding: 6px;
             text-align: left;
-            font-weight: bold;
-            font-size: 14px;
+        }
+        .data-table td {
+            border: 1px solid #000000;
+            padding: 6px;
         }
 
-        .academic-table td {
-            padding: 7px 14px;
-            border-bottom: 1px solid #e0d8d0;
-            background-color: #ffffff;
-            font-size: 14px;
-        }
-
-        .academic-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .academic-table tr:hover td {
-            background-color: #f3f0ea;
-        }
-
-        /* ===== ডান সাইডবার ===== */
-        .right-bg {
-            background-color: #f3f0ea;
-            padding: 14px 16px;
-            border-left: 1px solid #d0c8b8;
-            vertical-align: top;
-            width: 23%;
-        }
-
-        .right-bg h3 {
-            color: #1a2a4a;
-            font-size: 15px;
-            border-bottom: 2px solid #cc9900;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
+        /* ===== নোটিশ বোর্ড ===== */
         .notice-item {
-            background-color: #ffffff;
-            padding: 10px 12px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            border-left: 4px solid #cc9900;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #660000;
+            padding-bottom: 8px;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 13px;
         }
-
-        .notice-item .badge {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 1px 12px;
-            border-radius: 30px;
-            background-color: #993333;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin-bottom: 3px;
-        }
-
-        .notice-item .badge-blue {
-            background-color: #1a2a4a;
-        }
-        .notice-item .badge-gold {
-            background-color: #cc9900;
-            color: #222222;
-        }
-
         .notice-item p {
-            margin: 3px 0;
+            margin: 2px 0;
         }
-        .notice-item small {
-            color: #888888;
-            font-size: 10px;
-        }
-
-        .club-tags {
-            margin-top: 6px;
-        }
-
-        .club-tags span {
-            display: inline-block;
-            background-color: #ffffff;
-            padding: 3px 14px;
-            border-radius: 30px;
-            font-size: 12px;
-            color: #1a2a4a;
-            border: 1px solid #d0c8b8;
-            margin: 3px 4px 3px 0;
-            font-weight: 500;
+        .badge {
+            font-family: "Courier New", Courier, monospace; /* রেট্রো ব্যাজ স্টাইল */
+            font-weight: bold;
+            color: #660000;
         }
 
         /* ===== ফুটার ===== */
-        .footer-bg {
-            background-color: #1a2a4a;
-            color: #c0c8d0;
-            padding: 16px 18px;
+        .footer {
+            background-color: #660000;
+            color: #FFFFFF;
             text-align: center;
-            border-top: 4px solid #cc9900;
-        }
-
-        .footer-bg a {
-            color: #e6dbb5;
-            text-decoration: none;
-        }
-        .footer-bg a:hover {
-            color: #cc9900;
-            text-decoration: underline;
-        }
-
-        .footer-bg .links {
-            margin: 8px 0;
-        }
-        .footer-bg .links a {
-            margin: 0 12px;
-            font-size: 13px;
-        }
-
-        .footer-bg small {
+            padding: 12px;
+            border-top: 5px solid #DAA520;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 12px;
-            opacity: 0.8;
-            display: block;
+        }
+        .footer a {
+            color: #DAA520;
         }
 
-        .footer-logo {
-            height: 34px;
-            width: 34px;
-            border-radius: 50%;
-            border: 2px solid #cc9900;
-            object-fit: cover;
-            vertical-align: middle;
-            margin-right: 6px;
-        }
-
-        .footer-brand {
-            font-weight: bold;
-            color: #cc9900;
-            font-size: 16px;
-        }
-
-        /* ===== রেস্পন্সিভ ===== */
-        @media (max-width: 750px) {
-            .sidebar-bg,
-            .right-bg,
-            .content-bg {
-                width: 100% !important;
-                display: block !important;
-                border: none !important;
-                border-top: 2px solid #d0c8b8 !important;
-            }
-
-            .header-bg table {
-                display: block;
-                text-align: center;
-            }
-            .header-bg td {
-                display: block;
-                text-align: center !important;
-                padding: 6px 0 !important;
-            }
-
-            body {
-                margin: 6px;
-            }
-            .container {
-                border-radius: 6px;
-            }
-            .madrasah-title {
-                font-size: 20px;
-            }
-            .logo-img {
-                width: 55px;
-                height: 55px;
-            }
-
-            .campus-img {
-                max-height: 180px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .madrasah-title {
-                font-size: 17px;
-            }
-            .content-bg h2 {
-                font-size: 18px;
-            }
-            .academic-table th,
-            .academic-table td {
-                padding: 5px 8px;
-                font-size: 12px;
-            }
-            .principal-box td {
-                display: block;
-                text-align: center;
-            }
-            .principal-box .p-img {
-                margin: 0 auto;
-            }
-
-            .campus-img {
-                max-height: 140px;
-            }
+        hr.classic-hr {
+            border: 0;
+            height: 1px;
+            background-color: #660000;
+            margin: 15px 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-
+    <table class="wrapper" cellpadding="0" cellspacing="0">
+        
         <!-- ===== হেডার ===== -->
-        <table width="100%" cellpadding="0" cellspacing="0" class="header-bg">
-            <tr>
-                <td width="90" align="center" style="padding:6px 0;">
-                    <img src="aglg.png" alt="Al-Gazzali Logo" class="logo-img" />
-                </td>
-                <td align="center" style="padding:6px 0;">
-                    <div class="madrasah-title">Al-Gazzali <span>Islamia</span> Kamil Madrasah</div>
-                    <div class="sub-title">Bhandaria, Pirojpur, Bangladesh</div>
-                    <div class="header-meta">
-                        Established: <strong>1955</strong> &nbsp;|&nbsp; EIN: <strong>102644</strong>
-                    </div>
-                </td>
-                <td align="right" style="padding:6px 10px; font-size:13px; color:#b0b8c8;">
-                    📞 +880 172-883191<br />
-                    📧 <a href="mailto:principalalgazzali@gmail.com">principalalgazzali@gmail.com</a>
-                </td>
-            </tr>
-        </table>
+        <tr>
+            <td colspan="3" class="header">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="90" align="center" valign="middle">
+                            <img src="aglg.png" alt="Logo" width="70" height="70" class="img-classic" style="border-color: #DAA520;">
+                        </td>
+                        <td valign="middle">
+                            <div class="madrasah-title">Al-Gazzali <span>Islamia</span> Kamil Madrasah</div>
+                            <div class="sub-title">Bhandaria, Pirojpur, Bangladesh</div>
+                            <div style="font-size: 14px; margin-top: 5px; font-family: Arial;">
+                                Established: <strong>1955</strong> &nbsp;|&nbsp; EIN: <strong>102644</strong>
+                            </div>
+                        </td>
+                        <td align="right" valign="bottom" style="font-family: Arial; font-size: 13px;">
+                            Phone: +880 172-883191<br>
+                            Email: <a href="mailto:principalalgazzali@gmail.com">principalalgazzali@gmail.com</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
-        <!-- ===== মার্কি ===== -->
-        <table width="100%" cellpadding="0" cellspacing="0" class="ticker-bg">
-            <tr>
-                <td>
-                    <marquee scrollamount="4">
-                        <b>WELCOME TO AL-GAZZALI ISLAMIA KAMIL MADRASAH!</b> &nbsp;|&nbsp;
-                        Admission for 2026 Session is Now Open &nbsp;|&nbsp;
-                        Final Exam Starts 10 December 2026 &nbsp;|&nbsp;
-                        Visit Our Official Website
-                    </marquee>
-                </td>
-            </tr>
-        </table>
+        <!-- ===== মার্কি (Backdated Classic) ===== -->
+        <tr>
+            <td colspan="3" class="marquee-box">
+                <marquee scrollamount="4">
+                    <font color="#660000">+++ WELCOME TO AL-GAZZALI ISLAMIA KAMIL MADRASAH +++</font> &nbsp;&nbsp;&nbsp; 
+                    Admission for 2026 Session is Now Open &nbsp;&nbsp;&nbsp; 
+                    Final Exam Starts 10 December 2026 &nbsp;&nbsp;&nbsp; 
+                    Please Check Notice Board for Updates.
+                </marquee>
+            </td>
+        </tr>
 
-        <!-- ===== বডি ===== -->
-        <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
+        <!-- ===== বডি লেআউট (৩ কলাম) ===== -->
+        <tr>
+            
+            <!-- বাম সাইডবার -->
+            <td width="20%" valign="top" bgcolor="#F0F0E8" style="padding: 15px; border-right: 2px solid #000000;">
+                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Navigation</h3>
+                <ul class="nav-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#notice">Notice Board</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
 
-                <!-- বাম সাইডবার -->
-                <td class="sidebar-bg">
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#academics">Academics</a></li>
-                        <li><a href="#notice">Notice Board</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <br><br>
+                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Contact</h3>
+                <font face="Arial" size="2">
+                    <b>Address:</b><br>
+                    Bhandaria, Pirojpur<br>
+                    Bangladesh<br><br>
+                    <b>Phone:</b><br>
+                    +880 172-883191<br><br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=22.460791,89.992122" target="_blank">[ View on Map ]</a>
+                </font>
+            </td>
 
-                    <div class="contact-box">
-                        <h3>Address</h3>
-                        <p><strong>Bhandaria, Pirojpur</strong><br />Bangladesh</p>
-                        <p><strong>Phone:</strong><br />+880 172-883191</p>
-                        <p><strong>Email:</strong><br /><a href="mailto:principalalgazzali@gmail.com">principalalgazzali@gmail.com</a></p>
-                        <p style="margin-top:6px;">
-                            <a href="https://www.google.com/maps/search/?api=1&query=22.460791,89.992122" target="_blank" class="map-btn">
-                                View on Google Maps
-                            </a>
-                        </p>
-                    </div>
-                </td>
+            <!-- মাঝের কন্টেন্ট -->
+            <td width="55%" valign="top" class="content-area" style="padding: 20px;">
+                <a name="about"></a>
+                <h2>About Al-Gazzali Islamia Kamil Madrasah</h2>
+                
+                <center>
+                    <img src="campus.jpg" alt="Campus Photo" width="100%" class="img-classic">
+                </center>
 
-                <!-- কন্টেন্ট -->
-                <td class="content-bg" id="about">
+                <p>
+                    <b>Al-Gazzali Islamia Kamil Madrasah</b> (EIN: 102644) was established in 1955 
+                    with a vision to provide holistic education. Located at Bhandaria, Pirojpur, Bangladesh, 
+                    this historic institution has been combining Islamic and modern education for over five decades.
+                </p>
+                <p>
+                    Our mission is to nurture students with knowledge, ethics, and critical thinking. 
+                    We believe true education is the harmony of character building and intellectual growth.
+                </p>
 
-                    <h2>About Al-Gazzali Islamia Kamil Madrasah</h2>
-
-                    <img src="campus.jpg" alt="Campus" class="campus-img" />
-
-                    <p>
-                        <strong>Al-Gazzali Islamia Kamil Madrasah</strong> (EIN: 102644) was established in 1955 
-                        with a vision to provide holistic education. Located at Bhandaria, Pirojpur, Bangladesh, 
-                        this historic institution has been combining Islamic and modern education for over five decades.
-                    </p>
-
-                    <p>
-                        Our mission is to nurture students with knowledge, ethics, and critical thinking. 
-                        We believe true education is the harmony of character building and intellectual growth.
-                    </p>
-
-                    <!-- প্রিন্সিপাল -->
-                    <div class="principal-box">
-                        <table width="100%" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td width="85" align="center">
-                                    <img src="principal.jpg" alt="Principal" class="p-img" />
-                                </td>
-                                <td>
-                                    <div class="p-name">Abdullah Mahamud</div>
-                                    <div class="p-desig">Principal, Al-Gazzali Islamia Kamil Madrasah</div>
-                                    <div class="p-quote">"Education is the foundation of a just society. At Al-Gazzali, we cultivate curiosity, respect, and resilience."</div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <!-- একাডেমিক টেবিল -->
-                    <h3 id="academics">Academics &amp; Programs</h3>
-
-                    <table class="academic-table" cellpadding="0" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Level</th>
-                                <th>Class / Program</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Primary</td>
-                                <td>Class 1–5 (Ebtedayee)</td>
-                            </tr>
-                            <tr>
-                                <td>Secondary</td>
-                                <td>Class 6–10 (Dakhil)</td>
-                            </tr>
-                            <tr>
-                                <td>Higher Secondary</td>
-                                <td>Alim (Science, Commerce, Arts)</td>
-                            </tr>
-                            <tr>
-                                <td>Graduation</td>
-                                <td>Fazil (Pass &amp; Honors)</td>
-                            </tr>
-                            <tr>
-                                <td>Post-Graduation</td>
-                                <td>Kamil (Hadith, Fiqh, Tafsir)</td>
-                            </tr>
-                        </tbody>
+                <!-- প্রিন্সিপাল সেকশন -->
+                <div class="principal-box">
+                    <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                        <tr>
+                            <td width="90" valign="top">
+                                <img src="principal.jpg" alt="Principal" width="80" height="90" class="img-classic">
+                            </td>
+                            <td valign="top">
+                                <div class="p-name">Abdullah Mahamud</div>
+                                <font face="Arial" size="2" color="#333333">Principal, Al-Gazzali Islamia Kamil Madrasah</font><br>
+                                <div class="p-quote">"Education is the foundation of a just society. At Al-Gazzali, we cultivate curiosity, respect, and resilience."</div>
+                            </td>
+                        </tr>
                     </table>
+                </div>
 
-                </td>
+                <hr class="classic-hr">
 
-                <!-- ডান সাইডবার -->
-                <td class="right-bg" id="notice">
+                <!-- একাডেমিক টেবিল -->
+                <a name="academics"></a>
+                <h2>Academics &amp; Programs</h2>
+                <table class="data-table" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="35%">Level</th>
+                        <th width="65%">Class / Program</th>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F9F9F9">Primary</td>
+                        <td bgcolor="#F9F9F9">Class 1–5 (Ebtedayee)</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary</td>
+                        <td>Class 6–10 (Dakhil)</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F9F9F9">Higher Secondary</td>
+                        <td bgcolor="#F9F9F9">Alim (Science, Commerce, Arts)</td>
+                    </tr>
+                    <tr>
+                        <td>Graduation</td>
+                        <td>Fazil (Pass &amp; Honors)</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F9F9F9">Post-Graduation</td>
+                        <td bgcolor="#F9F9F9">Kamil (Hadith, Fiqh, Tafsir)</td>
+                    </tr>
+                </table>
 
-                    <h3>Notice Board</h3>
+            </td>
 
-                    <div class="notice-item">
-                        <span class="badge">Urgent</span>
-                        <p><strong>Final Exam 10 December</strong></p>
-                        <p style="color:#666666; font-size:12px;">Collect admit cards from office</p>
-                        <small>Published: 20 Nov 2026</small>
-                    </div>
+            <!-- ডান সাইডবার (নোটিশ) -->
+            <td width="25%" valign="top" bgcolor="#F0F0E8" style="padding: 15px; border-left: 2px solid #000000;">
+                <a name="notice"></a>
+                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Notice Board</h3>
 
-                    <div class="notice-item">
-                        <span class="badge badge-blue">Admission</span>
-                        <p><strong>2026 Session Open</strong></p>
-                        <p style="color:#666666; font-size:12px;">Forms available at office</p>
-                        <small>Published: 15 Oct 2026</small>
-                    </div>
+                <div class="notice-item">
+                    <span class="badge">[ URGENT ]</span>
+                    <p><b>Final Exam 10 December</b></p>
+                    <p><font color="#555555">Collect admit cards from office</font></p>
+                    <font size="1" color="#888888">Pub: 20 Nov 2026</font>
+                </div>
 
-                    <div class="notice-item">
-                        <span class="badge badge-gold">Event</span>
-                        <p><strong>Science Fair 5 Jan</strong></p>
-                        <p style="color:#666666; font-size:12px;">Registration ongoing</p>
-                        <small>Published: 25 Nov 2026</small>
-                    </div>
+                <div class="notice-item">
+                    <span class="badge">[ ADMISSION ]</span>
+                    <p><b>2026 Session Open</b></p>
+                    <p><font color="#555555">Forms available at office</font></p>
+                    <font size="1" color="#888888">Pub: 15 Oct 2026</font>
+                </div>
 
-                    <div class="notice-item">
-                        <span class="badge badge-blue">Routine</span>
-                        <p><strong>Winter Class Routine</strong></p>
-                        <p style="color:#666666; font-size:12px;">Published for all classes</p>
-                        <small>Published: 1 Dec 2026</small>
-                    </div>
+                <div class="notice-item">
+                    <span class="badge">[ EVENT ]</span>
+                    <p><b>Science Fair 5 Jan</b></p>
+                    <p><font color="#555555">Registration ongoing</font></p>
+                    <font size="1" color="#888888">Pub: 25 Nov 2026</font>
+                </div>
 
-                    <h3 style="margin-top:18px;">Student Clubs</h3>
-                    <div class="club-tags">
-                        <span>Science</span>
-                        <span>Robotics</span>
-                        <span>Computer</span>
-                        <span>Debate</span>
-                        <span>Sports</span>
-                        <span>Literature</span>
-                        <span>Volunteer</span>
-                    </div>
-                    <p style="font-size:12px; color:#888888; margin-top:8px;">
-                        <i>Students are e
+                <div class="notice-item">
+                    <span class="badge">[ ROUTINE ]</span>
+                    <p><b>Winter Class Routine</b></p>
+                    <p><font color="#555555">Published for all classes</font></p>
+                    <font size="1" color="#888888">Pub: 1 Dec 2026</font>
+                </div>
+
+                <br>
+                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Student Clubs</h3>
+                <font face="Courier New" size="2">
+                    &raquo; Science<br>
+                    &raquo; Robotics<br>
+                    &raquo; Computer<br>
+                    &raquo; Debate<br>
+                    &raquo; Sports<br>
+                    &raquo; Literature<br>
+                    &raquo; Volunteer<br>
+                </font>
+                <p style="font-size:12px; color:#555555; margin-top:8px; font-family: Arial;">
+                    <i>Students are encouraged to join these clubs to enhance their extracurricular skills.</i>
+                </p>
+            </td>
+
+        </tr>
+
+        <!-- ===== ফুটার ===== -->
+        <tr>
+            <td colspan="3" class="footer">
+                <strong>Al-Gazzali Islamia Kamil Madrasah</strong> &copy; 2026<br>
+                <a href="#">Home</a> | <a href="#about">About</a> | <a href="#academics">Academics</a> | <a href="#contact">Contact</a>
+                <br><br>
+                <font color="#B0B0B0">Best viewed in Internet Explorer 6.0 at 800x600 resolution</font>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
