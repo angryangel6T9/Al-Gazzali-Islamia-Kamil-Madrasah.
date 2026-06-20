@@ -304,9 +304,25 @@
 
                 <a name="results"></a>
                 <h2>Student Results</h2>
-                <div id="result-list">
-                    <div class="loading-msg">Loading results...</div>
+
+                <!-- রেজাল্ট সার্চ বক্স -->
+                <div style="background-color: #F5F5DC; border: 1px solid #660000; padding: 15px; margin-bottom: 15px;">
+                    <h3 style="margin-top: 0; font-size: 16px; border-bottom: 1px dashed #660000; padding-bottom: 5px;">🔍 Search Your Result</h3>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <label style="display:inline-block; width: 120px; font-weight:bold; font-size:14px;">Student ID/Roll:</label>
+                        <input type="text" id="searchId" placeholder="e.g., 2026101" style="padding: 5px; width: 200px; border: 1px solid #000;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:inline-block; width: 120px; font-weight:bold; font-size:14px;">Class:</label>
+                        <input type="text" id="searchClass" placeholder="e.g., Alim 1st Year" style="padding: 5px; width: 200px; border: 1px solid #000;">
+                    </div>
+                    
+                    <button onclick="searchResult()" style="background-color: #660000; color: #fff; border: 2px solid #000; padding: 6px 15px; cursor: pointer; font-weight: bold;">View Result</button>
                 </div>
+
+                <!-- সার্চ করা রেজাল্ট এখানে দেখাবে -->
+                <div id="result-display"></div>
 
             </td>
 
@@ -423,28 +439,53 @@
         }
 
         // ============================================================
-        // রেজাল্ট লোড
+        // নির্দিষ্ট রেজাল্ট সার্চ করা
         // ============================================================
-        function loadResults() {
-            const container = document.getElementById('result-list');
+        function searchResult() {
+            const searchId = document.getElementById('searchId').value.trim().toLowerCase();
+            const searchClass = document.getElementById('searchClass').value.trim().toLowerCase();
+            const container = document.getElementById('result-display');
+
+            if(!searchId || !searchClass) {
+                container.innerHTML = `<div class="no-notice" style="color:red; border-color:red;">⚠️ Please enter both Student ID and Class to view result.</div>`;
+                return;
+            }
+
+            container.innerHTML = '<div class="loading-msg">Searching for result...</div>';
 
             fetch(scriptUrl + "?action=getResults")
                 .then(res => res.json())
                 .then(data => {
-                    let html = '';
-                    if (data.length === 0) {
-                        html = `<div class="no-notice">📊 No results published yet.</div>`;
+                    // ডাটাবেস থেকে শুধু ওই নির্দিষ্ট স্টুডেন্টকে খুঁজে বের করবে
+                    const foundResult = data.find(r => 
+                        String(r.StudentID).trim().toLowerCase() === searchId && 
+                        String(r.Class).trim().toLowerCase() === searchClass
+                    );
+
+                    if (foundResult) {
+                        // রেজাল্ট পেলে সেটা টেবিলে দেখাবে
+                        container.innerHTML = `
+                        <table class="data-table">
+                            <tr>
+                                <th>ID / Roll</th>
+                                <th>Student Name</th>
+                                <th>Class</th>
+                                <th style="background-color:#006600;">GPA / Grade</th>
+                            </tr>
+                            <tr>
+                                <td>${escapeHtml(foundResult.StudentID)}</td>
+                                <td><b>${escapeHtml(foundResult.Name)}</b></td>
+                                <td>${escapeHtml(foundResult.Class)}</td>
+                                <td style="font-weight:bold; color:#006600; font-size:16px;">${escapeHtml(foundResult.GPA)}</td>
+                            </tr>
+                        </table>`;
                     } else {
-                        html = `<table class="data-table"><tr><th>ID</th><th>Name</th><th>Class</th><th>GPA</th></tr>`;
-                        data.forEach(r => {
-                            html += `<tr><td>${escapeHtml(r.StudentID)}</td><td>${escapeHtml(r.Name)}</td><td>${escapeHtml(r.Class)}</td><td>${escapeHtml(r.GPA)}</td></tr>`;
-                        });
-                        html += '</table>';
+                        // রেজাল্ট না পেলে ওয়ার্নিং দেবে
+                        container.innerHTML = `<div class="no-notice" style="color:red; border-color:red;">❌ No result found! Please check your ID and Class correctly.</div>`;
                     }
-                    container.innerHTML = html;
                 })
                 .catch(() => {
-                    container.innerHTML = `<div class="no-notice" style="color:red;">⚠️ Could not load results.</div>`;
+                    container.innerHTML = `<div class="no-notice" style="color:red;">⚠️ Server error. Could not fetch result.</div>`;
                 });
         }
 
@@ -459,12 +500,11 @@
         }
 
         // ============================================================
-        // পেজ লোডে সব ডাটা লোড করুন
+        // পেজ লোডে নোটিশ ও টিচার ডাটা লোড করুন (রেজাল্ট ছাড়া)
         // ============================================================
         window.onload = function() {
             loadNotices();
             loadTeachers();
-            loadResults();
         };
     </script>
 
