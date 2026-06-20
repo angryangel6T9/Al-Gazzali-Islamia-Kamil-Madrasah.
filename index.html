@@ -2,803 +2,523 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Al-Gazzali Islamia Kamil Madrasah</title>
-    <style type="text/css">
-        /* ===== সব স্টাইল আগের মতো ===== */
+    <title>Admin Panel - Al-Gazzali Madrasah</title>
+    <style>
         body {
-            background-color: #C0C0C0;
-            font-family: "Times New Roman", Times, serif;
-            color: #000000;
-            margin: 15px;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 30px;
         }
-        a {
-            color: #0000EE;
-            text-decoration: underline;
-        }
-        a:visited {
-            color: #551A8B;
-        }
-        a:hover {
-            color: #FF0000;
-        }
-        h1, h2, h3 {
-            font-weight: normal;
-            margin-top: 0;
-            color: #660000;
-        }
-        .wrapper {
-            width: 980px;
+        .container {
+            max-width: 700px;
             margin: 0 auto;
-            background-color: #FFFFFF;
-            border: 4px outset #E0E0E0;
-        }
-        .header {
-            background-color: #660000;
-            color: #FFFFFF;
-            padding: 15px;
-            border-bottom: 5px solid #DAA520;
-        }
-        .header a {
-            color: #DAA520;
-        }
-        .madrasah-title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .madrasah-title span {
-            color: #DAA520;
-        }
-        .sub-title {
-            font-size: 16px;
-            font-style: italic;
-        }
-        .marquee-box {
-            background-color: #FFF8DC;
-            border-bottom: 2px solid #660000;
-            padding: 5px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            color: #000000;
-        }
-        .nav-list {
-            list-style-type: square;
-            padding-left: 18px;
-            margin: 0;
-            line-height: 1.8;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-        }
-        .content-area {
-            text-align: justify;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-        .img-classic {
-            border: 2px solid #000000;
-            margin-bottom: 15px;
-        }
-        .principal-box {
-            background-color: #F5F5DC;
-            border: 1px solid #660000;
-            padding: 12px;
-            margin: 15px 0;
-        }
-        .p-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #660000;
-        }
-        .p-quote {
-            font-style: italic;
-            margin-top: 5px;
-        }
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 2px solid #000000;
-            margin-bottom: 15px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-        }
-        .data-table th {
-            background-color: #660000;
-            color: #FFFFFF;
-            border: 1px solid #000000;
-            padding: 6px;
-            text-align: left;
-        }
-        .data-table td {
-            border: 1px solid #000000;
-            padding: 6px;
-        }
-
-        /* ===== নোটিশ বোর্ড ===== */
-        .notice-item {
-            margin-bottom: 12px;
-            border-bottom: 1px dashed #660000;
-            padding-bottom: 8px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-        }
-        .notice-item p {
-            margin: 2px 0;
-        }
-        .badge {
-            font-family: "Courier New", Courier, monospace;
-            font-weight: bold;
-            color: #660000;
-        }
-        .notice-date {
-            font-size: 11px;
-            color: #888888;
-        }
-
-        /* ===== অ্যাডমিন প্যানেল ===== */
-        .admin-panel {
-            background: #f5f0e8;
+            background: #fff;
+            padding: 30px;
             border: 2px solid #660000;
-            padding: 15px;
-            margin-top: 15px;
-            display: none; /* ডিফল্ট লুকানো */
+            border-radius: 10px;
         }
-        .admin-panel.show {
-            display: block;
-        }
-        .admin-panel h3 {
+        h1 {
             color: #660000;
-            border-bottom: 2px solid #DAA520;
-            padding-bottom: 5px;
+            border-bottom: 3px solid #DAA520;
+            padding-bottom: 10px;
         }
-        .admin-panel input, .admin-panel textarea, .admin-panel select {
-            width: 95%;
-            padding: 6px;
-            margin-bottom: 8px;
-            border: 1px solid #999;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-            background: #FFFFFF;
-        }
-        .admin-panel button {
-            background: #660000;
-            color: #FFFFFF;
-            border: none;
-            padding: 8px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-right: 5px;
-            border-radius: 3px;
-        }
-        .admin-panel button:hover {
-            background: #880000;
-        }
-        .admin-panel button.btn-logout {
-            background: #555;
-        }
-        .admin-panel button.btn-logout:hover {
-            background: #333;
-        }
-        .admin-status {
-            font-size: 13px;
-            color: #006600;
-            margin: 5px 0;
-        }
-        .admin-status.error {
-            color: #CC0000;
-        }
-
-        /* ===== লগইন ফর্ম ===== */
         .login-box {
-            background: #f5f0e8;
-            border: 2px solid #660000;
-            padding: 20px;
-            margin-top: 15px;
             text-align: center;
+            padding: 30px;
         }
         .login-box input {
-            padding: 8px;
-            width: 200px;
+            padding: 10px;
+            width: 250px;
             border: 1px solid #999;
-            font-size: 14px;
+            font-size: 16px;
         }
         .login-box button {
             background: #660000;
-            color: #FFFFFF;
+            color: #fff;
             border: none;
-            padding: 8px 25px;
+            padding: 10px 30px;
             cursor: pointer;
-            font-weight: bold;
+            font-size: 16px;
         }
         .login-box button:hover {
             background: #880000;
         }
         .login-error {
-            color: #CC0000;
-            font-size: 13px;
+            color: red;
+            margin-top: 10px;
+        }
+        .admin-panel {
+            display: none;
+        }
+        .admin-panel.show {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: #333;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            height: 60px;
+        }
+        .btn {
+            background: #660000;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        .btn:hover {
+            background: #880000;
+        }
+        .btn-logout {
+            background: #555;
+        }
+        .btn-logout:hover {
+            background: #333;
+        }
+        .status {
+            padding: 8px;
             margin-top: 8px;
+            border-radius: 4px;
         }
-
-        .footer {
-            background-color: #660000;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 12px;
-            border-top: 5px solid #DAA520;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 12px;
+        .status.success {
+            background: #d4edda;
+            color: #155724;
         }
-        .footer a {
-            color: #DAA520;
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
         }
-        hr.classic-hr {
-            border: 0;
-            height: 1px;
-            background-color: #660000;
-            margin: 15px 0;
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
         }
-
-        /* অ্যাডমিন ট্যাব */
-        .admin-tabs {
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .tabs {
             display: flex;
             gap: 5px;
-            margin: 10px 0;
-            flex-wrap: wrap;
+            margin: 15px 0;
         }
-        .admin-tabs button {
+        .tabs button {
+            padding: 8px 20px;
             background: #ddd;
             border: 1px solid #999;
-            padding: 6px 15px;
             cursor: pointer;
             font-weight: bold;
         }
-        .admin-tabs button.active {
+        .tabs button.active {
             background: #660000;
-            color: #FFFFFF;
-            border-color: #660000;
+            color: #fff;
         }
-        .admin-section {
+        .tab-content {
             display: none;
-            padding: 10px 0;
+            padding: 15px 0;
         }
-        .admin-section.active {
+        .tab-content.active {
             display: block;
+        }
+        .notice-preview {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        .notice-preview h4 {
+            color: #660000;
+            margin: 0 0 10px 0;
+        }
+        .notice-item-preview {
+            border-bottom: 1px dashed #ccc;
+            padding: 5px 0;
+        }
+        .notice-item-preview:last-child {
+            border-bottom: none;
+        }
+        .badge-preview {
+            font-weight: bold;
+            color: #660000;
         }
     </style>
 </head>
 <body>
 
-    <table class="wrapper" cellpadding="0" cellspacing="0">
+<div class="container">
+    <div class="header-bar">
+        <h1>⚙️ Admin Panel</h1>
+        <span style="font-size:14px;color:#666;">Al-Gazzali Islamia Kamil Madrasah</span>
+    </div>
+
+    <!-- ===== লগইন বক্স ===== -->
+    <div id="loginBox" class="login-box">
+        <h3 style="color:#660000;">🔐 Admin Login Required</h3>
+        <p style="color:#666;font-size:14px;">Enter password to manage notices, teachers & results</p>
+        <br>
+        <input type="password" id="adminPass" placeholder="Enter password" onkeypress="if(event.key==='Enter') adminLogin()">
+        <br><br>
+        <button onclick="adminLogin()">Login</button>
+        <div id="loginError" class="login-error"></div>
+    </div>
+
+    <!-- ===== অ্যাডমিন প্যানেল ===== -->
+    <div id="adminPanel" class="admin-panel">
         
-        <tr>
-            <td colspan="3" class="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td width="90" align="center" valign="middle">
-                            <img src="aglg.png" alt="Logo" width="70" height="70" class="img-classic" style="border: 6px solid #FFFFFF; border-radius: 50%;">
-                        </td>
-                        <td valign="middle">
-                            <div class="madrasah-title">Al-Gazzali <span>Islamia</span> Kamil Madrasah</div>
-                            <div class="sub-title">Bhandaria, Pirojpur, Bangladesh</div>
-                            <div style="font-size: 14px; margin-top: 5px; font-family: Arial;">
-                                Established: <strong>1955</strong> &nbsp;|&nbsp; EIN: <strong>102644</strong>
-                            </div>
-                        </td>
-                        <td align="right" valign="bottom" style="font-family: Arial; font-size: 13px;">
-                            Phone: +880 172-883191<br>
-                            Email: <a href="mailto:principalalgazzali@gmail.com">principalalgazzali@gmail.com</a>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+        <div class="header-bar">
+            <span style="font-size:14px;color:#006600;">✅ Logged in</span>
+            <button class="btn btn-logout" onclick="adminLogout()">Logout</button>
+        </div>
 
-        <tr>
-            <td colspan="3" class="marquee-box">
-                <marquee scrollamount="4">
-                    <font color="#660000">+++ WELCOME TO AL-GAZZALI ISLAMIA KAMIL MADRASAH +++</font> &nbsp;&nbsp;&nbsp; 
-                    Admission for 2026 Session is Now Open &nbsp;&nbsp;&nbsp; 
-                    Final Exam Starts 10 December 2026 &nbsp;&nbsp;&nbsp; 
-                    Please Check Notice Board for Updates.
-                </marquee>
-            </td>
-        </tr>
+        <!-- ট্যাব -->
+        <div class="tabs">
+            <button class="active" onclick="switchTab('noticeTab')">📢 Notice</button>
+            <button onclick="switchTab('teacherTab')">👨‍🏫 Teacher</button>
+            <button onclick="switchTab('resultTab')">📊 Result</button>
+            <button onclick="switchTab('previewTab')">👀 Preview</button>
+        </div>
 
-        <tr>
-            <td width="20%" valign="top" bgcolor="#F0F0E8" style="padding: 15px; border-right: 2px solid #000000;">
-                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Navigation</h3>
-                <ul class="nav-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#academics">Academics</a></li>
-                    <li><a href="#notice">Notice Board</a></li>
-                    <li><a href="#teachers">Teachers</a></li>
-                    <li><a href="#results">Results</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+        <!-- নোটিশ -->
+        <div id="noticeTab" class="tab-content active">
+            <h3>📢 Add New Notice</h3>
+            <div class="form-group">
+                <label>Notice Type</label>
+                <select id="nType">
+                    <option value="URGENT">🔴 URGENT</option>
+                    <option value="ADMISSION">📋 ADMISSION</option>
+                    <option value="EVENT">🎪 EVENT</option>
+                    <option value="ROUTINE">📅 ROUTINE</option>
+                    <option value="GENERAL">📌 GENERAL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="nTitle" placeholder="Write notice title...">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="nDesc" placeholder="Write notice details..."></textarea>
+            </div>
+            <button class="btn" onclick="submitNotice()">📤 Publish Notice</button>
+            <div id="noticeStatus" class="status"></div>
+        </div>
 
-                <br><br>
-                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Contact</h3>
-                <font face="Arial" size="2">
-                    <b>Address:</b><br>
-                    Bhandaria, Pirojpur<br>
-                    Bangladesh<br><br>
-                    <b>Phone:</b><br>
-                    +880 172-883191<br><br>
-                    <a href="https://www.google.com/maps/search/?api=1&query=22.460791,89.992122" target="_blank">[ View on Map ]</a>
-                </font>
-            </td>
+        <!-- টিচার -->
+        <div id="teacherTab" class="tab-content">
+            <h3>👨‍🏫 Add New Teacher</h3>
+            <div class="form-group">
+                <label>Teacher Name</label>
+                <input type="text" id="tName" placeholder="Full name">
+            </div>
+            <div class="form-group">
+                <label>Education</label>
+                <input type="text" id="tEdu" placeholder="Education qualification">
+            </div>
+            <div class="form-group">
+                <label>Designation</label>
+                <input type="text" id="tDesig" placeholder="Designation">
+            </div>
+            <div class="form-group">
+                <label>Details</label>
+                <textarea id="tDetails" placeholder="Experience, achievements..."></textarea>
+            </div>
+            <button class="btn" onclick="submitTeacher()">👨‍🏫 Add Teacher</button>
+            <div id="teacherStatus" class="status"></div>
+        </div>
 
-            <td width="55%" valign="top" class="content-area" style="padding: 20px;">
-                <a name="about"></a>
-                <h2>About Al-Gazzali Islamia Kamil Madrasah</h2>
-                
-                <center>
-                    <img src="campus.jpg" alt="Campus Photo" width="100%" class="img-classic">
-                </center>
+        <!-- রেজাল্ট -->
+        <div id="resultTab" class="tab-content">
+            <h3>📊 Add Student Result</h3>
+            <div class="form-group">
+                <label>Student ID</label>
+                <input type="text" id="rID" placeholder="Student ID">
+            </div>
+            <div class="form-group">
+                <label>Student Name</label>
+                <input type="text" id="rName" placeholder="Full name">
+            </div>
+            <div class="form-group">
+                <label>Class</label>
+                <input type="text" id="rClass" placeholder="Class">
+            </div>
+            <div class="form-group">
+                <label>GPA</label>
+                <input type="text" id="rGPA" placeholder="GPA (e.g., 4.50)">
+            </div>
+            <button class="btn" onclick="submitResult()">📊 Add Result</button>
+            <div id="resultStatus" class="status"></div>
+        </div>
 
-                <p>
-                    <b>Al-Gazzali Islamia Kamil Madrasah</b> (EIN: 102644) was established in 1955 
-                    with a vision to provide holistic education. Located at Bhandaria, Pirojpur, Bangladesh, 
-                    this historic institution has been combining Islamic and modern education for over five decades.
-                </p>
-                <p>
-                    Our mission is to nurture students with knowledge, ethics, and critical thinking. 
-                    We believe true education is the harmony of character building and intellectual growth.
-                </p>
+        <!-- প্রিভিউ -->
+        <div id="previewTab" class="tab-content">
+            <h3>👀 Live Preview</h3>
+            <div class="notice-preview">
+                <h4>📢 Latest Notices</h4>
+                <div id="previewNotices">Loading...</div>
+            </div>
+            <br>
+            <div class="notice-preview">
+                <h4>👨‍🏫 Teachers</h4>
+                <div id="previewTeachers">Loading...</div>
+            </div>
+        </div>
 
-                <div class="principal-box">
-                    <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                        <tr>
-                            <td width="90" valign="top">
-                                <img src="principal.jpg" alt="Principal" width="80" height="90" class="img-classic">
-                            </td>
-                            <td valign="top">
-                                <div class="p-name" id="principalName">Abdullah Mahamud</div>
-                                <font face="Arial" size="2" color="#333333">Principal, Al-Gazzali Islamia Kamil Madrasah</font><br>
-                                <div class="p-quote">"Education is the foundation of a just society. At Al-Gazzali, we cultivate curiosity, respect, and resilience."</div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+    </div>
+</div>
 
-                <hr class="classic-hr">
+<script>
+    // ============================================================
+    // কনফিগারেশন
+    // ============================================================
+    const scriptUrl = "https://script.google.com/macros/s/আপনার_URL/exec";
+    const ADMIN_PASSWORD = "admin123";
 
-                <a name="academics"></a>
-                <h2>Academics &amp; Programs</h2>
-                <table class="data-table" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <th width="35%">Level</th>
-                        <th width="65%">Class / Program</th>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F9F9F9">Primary</td>
-                        <td bgcolor="#F9F9F9">Class 1–5 (Ebtedayee)</td>
-                    </tr>
-                    <tr>
-                        <td>Secondary</td>
-                        <td>Class 6–10 (Dakhil)</td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F9F9F9">Higher Secondary</td>
-                        <td bgcolor="#F9F9F9">Alim (Science, Commerce, Arts)</td>
-                    </tr>
-                    <tr>
-                        <td>Graduation</td>
-                        <td>Fazil (Pass &amp; Honors)</td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F9F9F9">Post-Graduation</td>
-                        <td bgcolor="#F9F9F9">Kamil (Hadith, Fiqh, Tafsir)</td>
-                    </tr>
-                </table>
-
-                <a name="teachers"></a>
-                <h2>Our Teachers</h2>
-                <div id="teacher-list">Loading teachers...</div>
-
-                <a name="results"></a>
-                <h2>Student Results</h2>
-                <div id="result-list">Loading results...</div>
-
-            </td>
-
-            <td width="25%" valign="top" bgcolor="#F0F0E8" style="padding: 15px; border-left: 2px solid #000000;">
-                <a name="notice"></a>
-                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Notice Board</h3>
-
-                <!-- ===== ডায়নামিক নোটিশ ===== -->
-                <div id="dynamic-notices">
-                    <div class="loading-msg">Loading notices...</div>
-                </div>
-
-                <!-- ===== লগইন বক্স ===== -->
-                <div id="loginBox" class="login-box">
-                    <b>🔐 Admin Login</b><br><br>
-                    <input type="password" id="adminPass" placeholder="Enter password" onkeypress="if(event.key==='Enter') adminLogin()">
-                    <br><br>
-                    <button onclick="adminLogin()">Login</button>
-                    <div id="loginError" class="login-error"></div>
-                </div>
-
-                <!-- ===== অ্যাডমিন প্যানেল (লগইন করলে দেখাবে) ===== -->
-                <div id="adminPanel" class="admin-panel">
-                    <div style="display:flex;justify-content:space-between;align-items:center;">
-                        <h3 style="margin:0;">⚙️ Admin Panel</h3>
-                        <button class="btn-logout" onclick="adminLogout()">Logout</button>
-                    </div>
-                    
-                    <!-- ট্যাব -->
-                    <div class="admin-tabs">
-                        <button class="active" onclick="switchTab('noticeTab')">📢 Notice</button>
-                        <button onclick="switchTab('teacherTab')">👨‍🏫 Teacher</button>
-                        <button onclick="switchTab('resultTab')">📊 Result</button>
-                    </div>
-
-                    <!-- নোটিশ সেকশন -->
-                    <div id="noticeTab" class="admin-section active">
-                        <p>Add New Notice</p>
-                        <select id="nType">
-                            <option value="URGENT">URGENT</option>
-                            <option value="ADMISSION">ADMISSION</option>
-                            <option value="EVENT">EVENT</option>
-                            <option value="ROUTINE">ROUTINE</option>
-                            <option value="GENERAL">GENERAL</option>
-                        </select>
-                        <input type="text" id="nTitle" placeholder="Notice Title">
-                        <textarea id="nDesc" placeholder="Description" rows="2"></textarea>
-                        <button onclick="submitNotice()">📤 Publish Notice</button>
-                        <div id="noticeStatus" class="admin-status"></div>
-                    </div>
-
-                    <!-- টিচার সেকশন -->
-                    <div id="teacherTab" class="admin-section">
-                        <p>Add New Teacher</p>
-                        <input type="text" id="tName" placeholder="Teacher Name">
-                        <input type="text" id="tEdu" placeholder="Education">
-                        <input type="text" id="tDesig" placeholder="Designation">
-                        <textarea id="tDetails" placeholder="Details (experience, etc.)" rows="2"></textarea>
-                        <button onclick="submitTeacher()">👨‍🏫 Add Teacher</button>
-                        <div id="teacherStatus" class="admin-status"></div>
-                    </div>
-
-                    <!-- রেজাল্ট সেকশন -->
-                    <div id="resultTab" class="admin-section">
-                        <p>Add Student Result</p>
-                        <input type="text" id="rID" placeholder="Student ID">
-                        <input type="text" id="rName" placeholder="Student Name">
-                        <input type="text" id="rClass" placeholder="Class">
-                        <input type="text" id="rGPA" placeholder="GPA">
-                        <button onclick="submitResult()">📊 Add Result</button>
-                        <div id="resultStatus" class="admin-status"></div>
-                    </div>
-                </div>
-
-                <br>
-                <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Student Clubs</h3>
-                <font face="Courier New" size="2">
-                    &raquo; Science<br>
-                    &raquo; Robotics<br>
-                    &raquo; Computer<br>
-                    &raquo; Debate<br>
-                    &raquo; Sports<br>
-                    &raquo; Literature<br>
-                    &raquo; Volunteer<br>
-                </font>
-                <p style="font-size:12px; color:#555555; margin-top:8px; font-family: Arial;">
-                    <i>Students are encouraged to join these clubs to enhance their extracurricular skills.</i>
-                </p>
-            </td>
-
-        </tr>
-
-        <tr>
-            <td colspan="3" class="footer">
-                <strong>Al-Gazzali Islamia Kamil Madrasah</strong> &copy; 2026<br>
-                <a href="#">Home</a> | <a href="#about">About</a> | <a href="#academics">Academics</a> | <a href="#contact">Contact</a>
-                <br><br>
-                <font color="#B0B0B0">Best viewed in Internet Explorer 6.0 at 800x600 resolution</font>
-            </td>
-        </tr>
-
-    </table>
-
-    <script>
-        // ============================================================
-        // কনফিগারেশন
-        // ============================================================
-        const scriptUrl = "https://script.google.com/macros/s/আপনার_নতুন_URL/exec";
-        const ADMIN_PASSWORD = "admin123"; // ← আপনার পছন্দের পাসওয়ার্ড দিন
-
-        // ============================================================
-        // অ্যাডমিন লগইন/লগআউট
-        // ============================================================
-        function adminLogin() {
-            const pass = document.getElementById('adminPass').value;
-            const error = document.getElementById('loginError');
-            
-            if (pass === ADMIN_PASSWORD) {
-                document.getElementById('loginBox').style.display = 'none';
-                document.getElementById('adminPanel').classList.add('show');
-                error.textContent = '';
-                document.getElementById('adminPass').value = '';
-            } else {
-                error.textContent = '❌ Wrong password! Try again.';
-            }
-        }
-
-        function adminLogout() {
-            document.getElementById('loginBox').style.display = 'block';
-            document.getElementById('adminPanel').classList.remove('show');
+    // ============================================================
+    // লগইন
+    // ============================================================
+    function adminLogin() {
+        var pass = document.getElementById('adminPass').value;
+        var error = document.getElementById('loginError');
+        if (pass === ADMIN_PASSWORD) {
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('show');
+            error.textContent = '';
             document.getElementById('adminPass').value = '';
+            loadPreview();
+        } else {
+            error.textContent = '❌ Wrong password! Try again.';
+        }
+    }
+
+    function adminLogout() {
+        document.getElementById('loginBox').style.display = 'block';
+        document.getElementById('adminPanel').classList.remove('show');
+        document.getElementById('adminPass').value = '';
+    }
+
+    document.getElementById('adminPass').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') adminLogin();
+    });
+
+    // ============================================================
+    // ট্যাব
+    // ============================================================
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tabs button').forEach(el => el.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.querySelector('.tabs button[onclick*="' + tabId + '"]').classList.add('active');
+        if (tabId === 'previewTab') loadPreview();
+    }
+
+    // ============================================================
+    // নোটিশ
+    // ============================================================
+    function submitNotice() {
+        var title = document.getElementById('nTitle').value.trim();
+        var desc = document.getElementById('nDesc').value.trim();
+        var type = document.getElementById('nType').value;
+        var status = document.getElementById('noticeStatus');
+
+        if (!title || !desc) {
+            status.className = 'status error';
+            status.textContent = '⚠️ Please fill both fields.';
+            return;
         }
 
-        // Enter key দিয়ে লগইন
-        document.getElementById('adminPass').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') adminLogin();
-        });
+        status.className = 'status info';
+        status.textContent = '⏳ Publishing...';
 
-        // ============================================================
-        // ট্যাব সুইচ
-        // ============================================================
-        function switchTab(tabId) {
-            // সব সেকশন লুকান
-            document.querySelectorAll('.admin-section').forEach(el => el.classList.remove('active'));
-            // সব ট্যাব বাটন থেকে active রিমুভ
-            document.querySelectorAll('.admin-tabs button').forEach(el => el.classList.remove('active'));
-            
-            // নির্বাচিত ট্যাব দেখান
-            document.getElementById(tabId).classList.add('active');
-            // বাটন active করুন
-            document.querySelector(`.admin-tabs button[onclick="switchTab('${tabId}')"]`).classList.add('active');
-        }
+        var fd = new URLSearchParams();
+        fd.append('action', 'addNotice');
+        fd.append('title', title);
+        fd.append('description', desc);
+        fd.append('type', type);
 
-        // ============================================================
-        // নোটিশ ফাংশন
-        // ============================================================
-        function loadNotices() {
-            const container = document.getElementById('dynamic-notices');
-            container.innerHTML = '<div class="loading-msg">Loading notices...</div>';
-
-            fetch(scriptUrl + "?action=getNotices")
-                .then(res => res.json())
-                .then(data => {
-                    let html = '';
-                    if (data.length === 0) {
-                        html = '<div class="loading-msg">No notices available.</div>';
-                    } else {
-                        data.slice(0, 5).forEach(n => {
-                            const badge = n.Type ? n.Type.toUpperCase() : 'NOTICE';
-                            html += `
-                                <div class="notice-item">
-                                    <span class="badge">[${badge}]</span>
-                                    <p><b>${escapeHtml(n.Title)}</b></p>
-                                    <p>${escapeHtml(n.Description)}</p>
-                                    ${n.Date ? `<div class="notice-date">📅 ${escapeHtml(n.Date)}</div>` : ''}
-                                </div>
-                            `;
-                        });
-                    }
-                    container.innerHTML = html;
-                })
-                .catch(err => {
-                    container.innerHTML = '<div class="loading-msg" style="color:red;">⚠️ Could not load notices.</div>';
-                });
-        }
-
-        function submitNotice() {
-            const title = document.getElementById('nTitle').value.trim();
-            const desc = document.getElementById('nDesc').value.trim();
-            const type = document.getElementById('nType').value;
-            const status = document.getElementById('noticeStatus');
-
-            if (!title || !desc) {
-                status.textContent = '⚠️ Please fill both fields.';
-                status.className = 'admin-status error';
-                return;
-            }
-
-            status.textContent = '⏳ Publishing...';
-            status.className = 'admin-status';
-
-            const fd = new URLSearchParams();
-            fd.append('action', 'addNotice');
-            fd.append('title', title);
-            fd.append('description', desc);
-            fd.append('type', type);
-
-            fetch(scriptUrl, {
-                method: 'POST',
-                body: fd,
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            })
+        fetch(scriptUrl, { method: 'POST', body: fd, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    status.textContent = '✅ Published!';
-                    status.className = 'admin-status';
+                    status.className = 'status success';
+                    status.textContent = '✅ Published successfully!';
                     document.getElementById('nTitle').value = '';
                     document.getElementById('nDesc').value = '';
-                    loadNotices();
+                    loadPreview();
                 } else {
+                    status.className = 'status error';
                     status.textContent = '❌ Error: ' + data.error;
-                    status.className = 'admin-status error';
                 }
             })
             .catch(() => {
+                status.className = 'status error';
                 status.textContent = '❌ Network error.';
-                status.className = 'admin-status error';
             });
+    }
+
+    // ============================================================
+    // টিচার
+    // ============================================================
+    function submitTeacher() {
+        var name = document.getElementById('tName').value.trim();
+        var edu = document.getElementById('tEdu').value.trim();
+        var desig = document.getElementById('tDesig').value.trim();
+        var details = document.getElementById('tDetails').value.trim();
+        var status = document.getElementById('teacherStatus');
+
+        if (!name || !desig) {
+            status.className = 'status error';
+            status.textContent = '⚠️ Name and Designation required.';
+            return;
         }
 
-        // ============================================================
-        // টিচার ফাংশন
-        // ============================================================
-        function loadTeachers() {
-            const container = document.getElementById('teacher-list');
-            container.innerHTML = 'Loading teachers...';
+        status.className = 'status info';
+        status.textContent = '⏳ Adding...';
 
-            fetch(scriptUrl + "?action=getTeachers")
-                .then(res => res.json())
-                .then(data => {
-                    let html = '<table class="data-table"><tr><th>Name</th><th>Education</th><th>Designation</th></tr>';
-                    if (data.length === 0) {
-                        html = '<p>No teachers added yet.</p>';
-                    } else {
-                        data.forEach(t => {
-                            html += `<tr><td>${escapeHtml(t.Name)}</td><td>${escapeHtml(t.Education)}</td><td>${escapeHtml(t.Designation)}</td></tr>`;
-                        });
-                        html += '</table>';
-                    }
-                    container.innerHTML = html;
-                })
-                .catch(() => {
-                    container.innerHTML = '<p style="color:red;">⚠️ Could not load teachers.</p>';
-                });
-        }
+        var fd = new URLSearchParams();
+        fd.append('action', 'addTeacher');
+        fd.append('name', name);
+        fd.append('education', edu);
+        fd.append('designation', desig);
+        fd.append('details', details);
 
-        function submitTeacher() {
-            const name = document.getElementById('tName').value.trim();
-            const edu = document.getElementById('tEdu').value.trim();
-            const desig = document.getElementById('tDesig').value.trim();
-            const details = document.getElementById('tDetails').value.trim();
-            const status = document.getElementById('teacherStatus');
-
-            if (!name || !desig) {
-                status.textContent = '⚠️ Name and Designation required.';
-                status.className = 'admin-status error';
-                return;
-            }
-
-            status.textContent = '⏳ Adding...';
-            status.className = 'admin-status';
-
-            const fd = new URLSearchParams();
-            fd.append('action', 'addTeacher');
-            fd.append('name', name);
-            fd.append('education', edu);
-            fd.append('designation', desig);
-            fd.append('details', details);
-
-            fetch(scriptUrl, {
-                method: 'POST',
-                body: fd,
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            })
+        fetch(scriptUrl, { method: 'POST', body: fd, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
+                    status.className = 'status success';
                     status.textContent = '✅ Teacher added!';
-                    status.className = 'admin-status';
                     document.getElementById('tName').value = '';
                     document.getElementById('tEdu').value = '';
                     document.getElementById('tDesig').value = '';
                     document.getElementById('tDetails').value = '';
-                    loadTeachers();
+                    loadPreview();
                 } else {
+                    status.className = 'status error';
                     status.textContent = '❌ Error: ' + data.error;
-                    status.className = 'admin-status error';
                 }
             })
             .catch(() => {
+                status.className = 'status error';
                 status.textContent = '❌ Network error.';
-                status.className = 'admin-status error';
             });
+    }
+
+    // ============================================================
+    // রেজাল্ট
+    // ============================================================
+    function submitResult() {
+        var id = document.getElementById('rID').value.trim();
+        var name = document.getElementById('rName').value.trim();
+        var cls = document.getElementById('rClass').value.trim();
+        var gpa = document.getElementById('rGPA').value.trim();
+        var status = document.getElementById('resultStatus');
+
+        if (!id || !name || !cls || !gpa) {
+            status.className = 'status error';
+            status.textContent = '⚠️ All fields required.';
+            return;
         }
 
-        // ============================================================
-        // রেজাল্ট ফাংশন
-        // ============================================================
-        function loadResults() {
-            const container = document.getElementById('result-list');
-            container.innerHTML = 'Loading results...';
+        status.className = 'status info';
+        status.textContent = '⏳ Adding...';
 
-            fetch(scriptUrl + "?action=getResults")
-                .then(res => res.json())
-                .then(data => {
-                    let html = '<table class="data-table"><tr><th>ID</th><th>Name</th><th>Class</th><th>GPA</th></tr>';
-                    if (data.length === 0) {
-                        html = '<p>No results published yet.</p>';
-                    } else {
-                        data.forEach(r => {
-                            html += `<tr><td>${escapeHtml(r.StudentID)}</td><td>${escapeHtml(r.Name)}</td><td>${escapeHtml(r.Class)}</td><td>${escapeHtml(r.GPA)}</td></tr>`;
-                        });
-                        html += '</table>';
-                    }
-                    container.innerHTML = html;
-                })
-                .catch(() => {
-                    container.innerHTML = '<p style="color:red;">⚠️ Could not load results.</p>';
-                });
-        }
+        var fd = new URLSearchParams();
+        fd.append('action', 'addResult');
+        fd.append('studentId', id);
+        fd.append('name', name);
+        fd.append('class', cls);
+        fd.append('gpa', gpa);
 
-        function submitResult() {
-            const id = document.getElementById('rID').value.trim();
-            const name = document.getElementById('rName').value.trim();
-            const cls = document.getElementById('rClass').value.trim();
-            const gpa = document.getElementById('rGPA').value.trim();
-            const status = document.getElementById('resultStatus');
-
-            if (!id || !name || !cls || !gpa) {
-                status.textContent = '⚠️ All fields required.';
-                status.className = 'admin-status error';
-                return;
-            }
-
-            status.textContent = '⏳ Adding...';
-            status.className = 'admin-status';
-
-            const fd = new URLSearchParams();
-            fd.append('action', 'addResult');
-            fd.append('studentId', id);
-            fd.append('name', name);
-            fd.append('class', cls);
-            fd.append('gpa', gpa);
-
-            fetch(scriptUrl, {
-                method: 'POST',
-                body: fd,
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            })
+        fetch(scriptUrl, { method: 'POST', body: fd, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
+                    status.className = 'status success';
                     status.textContent = '✅ Result added!';
-                    status.className = 'admin-status';
                     document.getElementById('rID').value = '';
                     document.getElementById('rName').value = '';
                     document.getElementById('rClass').value = '';
                     document.getElementById('rGPA').value = '';
-                    loadResults();
+                    loadPreview();
                 } else {
+                    status.className = 'status error';
                     status.textContent = '❌ Error: ' + data.error;
-                    status.className = 'admin-status error';
                 }
             })
             .catch(() => {
+                status.className = 'status error';
                 status.textContent = '❌ Network error.';
-                status.className = 'admin-status error';
             });
-        }
+    }
 
-        // ============================================================
-        // হেল্পার ফাংশন
-        // ============================================================
-        function escapeHtml(text) {
-            if (!text) return '';
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
+    // ============================================================
+    // প্রিভিউ
+    // ============================================================
+    function loadPreview() {
+        // নোটিশ প্রিভিউ
+        fetch(scriptUrl + "?action=getNotices")
+            .then(res => res.json())
+            .then(data => {
+                var html = '';
+                if (data.length === 0) {
+                    html = '<div style="color:#999;padding:10px;">📭 No notices available.</div>';
+                } else {
+                    data.slice(0, 5).forEach(n => {
+                        html += '<div class="notice-item-preview">';
+                        html += '<span class="badge-preview">[' + (n.Type || 'NOTICE') + ']</span> ';
+                        html += '<b>' + n.Title + '</b><br>';
+                        html += '<span style="font-size:13px;color:#555;">' + n.Description + '</span>';
+                        if (n.Date) html += ' <span style="font-size:11px;color:#999;">📅 ' + n.Date + '</span>';
+                        html += '</div>';
+                    });
+                }
+                document.getElementById('previewNotices').innerHTML = html;
+            })
+            .catch(() => {
+                document.getElementById('previewNotices').innerHTML = '<span style="color:red;">Error loading</span>';
+            });
 
-        // ============================================================
-        // পেজ লোডে সব ডাটা লোড করুন
-        // ============================================================
-        window.onload = function() {
-            loadNotices();
-            loadTeachers();
-            loadResults();
-        };
-    </script>
+        // টিচার প্রিভিউ
+        fetch(scriptUrl + "?action=getTeachers")
+            .then(res => res.json())
+            .then(data => {
+                var html = '';
+                if (data.length === 0) {
+                    html = '<div style="color:#999;padding:10px;">👨‍🏫 No teachers added yet.</div>';
+                } else {
+                    data.slice(0, 5).forEach(t => {
+                        html += '<div class="notice-item-preview">';
+                        html += '<b>' + t.Name + '</b> - ' + t.Designation;
+                        if (t.Education) html += ' (' + t.Education + ')';
+                        html += '</div>';
+                    });
+                }
+                document.getElementById('previewTeachers').innerHTML = html;
+            })
+            .catch(() => {
+                document.getElementById('previewTeachers').innerHTML = '<span style="color:red;">Error loading</span>';
+            });
+    }
+</script>
 
 </body>
 </html>
