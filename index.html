@@ -6,8 +6,8 @@
     <style type="text/css">
         /* ===== বডি ও বেসিক স্টাইল ===== */
         body {
-            background-color: #C0C0C0; /* ক্লাসিক সিলভার/গ্রে ব্যাকগ্রাউন্ড */
-            font-family: "Times New Roman", Times, serif; /* ভিনটেজ প্রাতিষ্ঠানিক ফন্ট */
+            background-color: #C0C0C0;
+            font-family: "Times New Roman", Times, serif;
             color: #000000;
             margin: 15px;
         }
@@ -20,7 +20,7 @@
             color: #551A8B;
         }
         a:hover {
-            color: #FF0000; /* হোভার করলে ক্লাসিক লাল রঙ */
+            color: #FF0000;
         }
 
         h1, h2, h3 {
@@ -29,20 +29,18 @@
             color: #660000;
         }
 
-        /* ===== মূল কন্টেইনার (টেবিল বেসড লেআউট সিমুলেশন) ===== */
         .wrapper {
             width: 980px;
             margin: 0 auto;
             background-color: #FFFFFF;
-            border: 4px outset #E0E0E0; /* 3D বর্ডার ইফেক্ট */
+            border: 4px outset #E0E0E0;
         }
 
-        /* ===== হেডার ===== */
         .header {
-            background-color: #660000; /* গাঢ় মেরুন */
+            background-color: #660000;
             color: #FFFFFF;
             padding: 15px;
-            border-bottom: 5px solid #DAA520; /* সোনালী বর্ডার */
+            border-bottom: 5px solid #DAA520;
         }
         .header a {
             color: #DAA520;
@@ -60,9 +58,8 @@
             font-style: italic;
         }
 
-        /* ===== মার্কি ===== */
         .marquee-box {
-            background-color: #FFF8DC; /* পার্চমেন্ট কালার */
+            background-color: #FFF8DC;
             border-bottom: 2px solid #660000;
             padding: 5px;
             font-family: Arial, Helvetica, sans-serif;
@@ -70,9 +67,8 @@
             color: #000000;
         }
 
-        /* ===== সাইডবার নেভিগেশন ===== */
         .nav-list {
-            list-style-type: square; /* ক্লাসিক চারকোনা বুলেট */
+            list-style-type: square;
             padding-left: 18px;
             margin: 0;
             line-height: 1.8;
@@ -80,7 +76,6 @@
             font-size: 14px;
         }
 
-        /* ===== কন্টেন্ট এরিয়া ===== */
         .content-area {
             text-align: justify;
             line-height: 1.6;
@@ -88,11 +83,10 @@
         }
         
         .img-classic {
-            border: 2px solid #000000; /* সাধারণ কালো বর্ডার */
+            border: 2px solid #000000;
             margin-bottom: 15px;
         }
 
-        /* ===== প্রিন্সিপাল বক্স ===== */
         .principal-box {
             background-color: #F5F5DC;
             border: 1px solid #660000;
@@ -109,7 +103,6 @@
             margin-top: 5px;
         }
 
-        /* ===== একাডেমিক টেবিল ===== */
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -130,7 +123,7 @@
             padding: 6px;
         }
 
-        /* ===== নোটিশ বোর্ড ===== */
+        /* ===== নোটিশ বোর্ডের স্টাইল ===== */
         .notice-item {
             margin-bottom: 12px;
             border-bottom: 1px dashed #660000;
@@ -142,12 +135,49 @@
             margin: 2px 0;
         }
         .badge {
-            font-family: "Courier New", Courier, monospace; /* রেট্রো ব্যাজ স্টাইল */
+            font-family: "Courier New", Courier, monospace;
             font-weight: bold;
             color: #660000;
         }
+        .notice-date {
+            font-size: 11px;
+            color: #888888;
+        }
 
-        /* ===== ফুটার ===== */
+        /* ===== অ্যাডমিন প্যানেল ===== */
+        .admin-box {
+            background: #f9f9f9;
+            border: 1px solid #660000;
+            padding: 10px;
+            margin-top: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        .admin-box input, .admin-box textarea {
+            width: 95%;
+            padding: 4px;
+            margin-bottom: 5px;
+            border: 1px solid #999;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+        .admin-box button {
+            background: #660000;
+            color: #FFFFFF;
+            border: none;
+            padding: 6px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .admin-box button:hover {
+            background: #880000;
+        }
+        .loading-msg {
+            color: #666;
+            font-style: italic;
+            font-size: 13px;
+        }
+
         .footer {
             background-color: #660000;
             color: #FFFFFF;
@@ -301,32 +331,18 @@
                 <a name="notice"></a>
                 <h3 style="border-bottom: 2px solid #660000; padding-bottom: 3px;">Notice Board</h3>
 
-                <div class="notice-item">
-                    <span class="badge">[ URGENT ]</span>
-                    <p><b>Final Exam 10 December</b></p>
-                    <p><font color="#555555">Collect admit cards from office</font></p>
-                    <font size="1" color="#888888">Pub: 20 Nov 2026</font>
+                <!-- ===== ডায়নামিক নোটিশ এখানে লোড হবে ===== -->
+                <div id="dynamic-notices">
+                    <div class="loading-msg">Loading notices...</div>
                 </div>
 
-                <div class="notice-item">
-                    <span class="badge">[ ADMISSION ]</span>
-                    <p><b>2026 Session Open</b></p>
-                    <p><font color="#555555">Forms available at office</font></p>
-                    <font size="1" color="#888888">Pub: 15 Oct 2026</font>
-                </div>
-
-                <div class="notice-item">
-                    <span class="badge">[ EVENT ]</span>
-                    <p><b>Science Fair 5 Jan</b></p>
-                    <p><font color="#555555">Registration ongoing</font></p>
-                    <font size="1" color="#888888">Pub: 25 Nov 2026</font>
-                </div>
-
-                <div class="notice-item">
-                    <span class="badge">[ ROUTINE ]</span>
-                    <p><b>Winter Class Routine</b></p>
-                    <p><font color="#555555">Published for all classes</font></p>
-                    <font size="1" color="#888888">Pub: 1 Dec 2026</font>
+                <!-- ===== অ্যাডমিন প্যানেল (নতুন নোটিশ যোগ করতে) ===== -->
+                <div class="admin-box">
+                    <b>📢 Admin: Add Notice</b><br>
+                    <input type="text" id="nTitle" placeholder="Notice Title">
+                    <textarea id="nDesc" placeholder="Description" rows="2"></textarea>
+                    <button onclick="submitNotice()">Publish Notice</button>
+                    <span id="publish-status" style="font-size:11px;color:#666;"></span>
                 </div>
 
                 <br>
@@ -357,6 +373,100 @@
         </tr>
 
     </table>
+
+    <script>
+        // ============================================================
+        // আপনার Google Apps Script Web App-এর লিংক দিন
+        // ============================================================
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbyo3iJoGam34dhaHE3IiBMItKrZw9GDY6c4r8FX1oBPr7pdg1PuRNuAp0cEWbYZ3Av6dg/exec";
+
+        // ===== নোটিশ লোড করা =====
+        function loadNotices() {
+            const container = document.getElementById('dynamic-notices');
+            container.innerHTML = '<div class="loading-msg">Loading notices...</div>';
+
+            fetch(scriptUrl + "?action=getNotices")
+                .then(response => {
+                    if (!response.ok) throw new Error('Network error');
+                    return response.json();
+                })
+                .then(data => {
+                    let html = '';
+                    if (data.length === 0) {
+                        html = '<div class="loading-msg">No notices available.</div>';
+                    } else {
+                        data.forEach(n => {
+                            html += `
+                                <div class="notice-item">
+                                    <span class="badge">[ NOTICE ]</span>
+                                    <p><b>${escapeHtml(n.Title || 'Untitled')}</b></p>
+                                    <p>${escapeHtml(n.Description || '')}</p>
+                                    ${n.Date ? `<div class="notice-date">📅 ${escapeHtml(n.Date)}</div>` : ''}
+                                </div>
+                            `;
+                        });
+                    }
+                    container.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading notices:', error);
+                    container.innerHTML = '<div class="loading-msg" style="color:red;">⚠️ Could not load notices. Please try again later.</div>';
+                });
+        }
+
+        // ===== নতুন নোটিশ জমা দেওয়া =====
+        function submitNotice() {
+            const title = document.getElementById('nTitle').value.trim();
+            const desc = document.getElementById('nDesc').value.trim();
+            const status = document.getElementById('publish-status');
+
+            if (!title || !desc) {
+                status.innerHTML = '⚠️ Please fill both fields.';
+                return;
+            }
+
+            status.innerHTML = '⏳ Publishing...';
+
+            const formData = new URLSearchParams();
+            formData.append('action', 'addNotice');
+            formData.append('title', title);
+            formData.append('description', desc);
+
+            fetch(scriptUrl, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    status.innerHTML = '✅ Published successfully!';
+                    document.getElementById('nTitle').value = '';
+                    document.getElementById('nDesc').value = '';
+                    loadNotices(); // রিলোড নোটিশ
+                } else {
+                    status.innerHTML = '❌ Error: ' + (data.error || 'Unknown error');
+                }
+            })
+            .catch(error => {
+                console.error('Error publishing notice:', error);
+                status.innerHTML = '❌ Network error. Please try again.';
+            });
+        }
+
+        // ===== HTML এস্কেপ (সিকিউরিটি) =====
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ===== পেজ লোড হলে নোটিশ দেখাও =====
+        window.onload = loadNotices;
+    </script>
 
 </body>
 </html>
